@@ -23,19 +23,19 @@ fig, ax = plt.subplots(figsize=(12, 7))
 
 # Рисуем линии. Выделим общую по стране жирной линией
 for column in df.columns:
-    linewidth = 4 if column == 'Кыргызстан (в целом)' else 2
-    alpha = 1 if column == 'Кыргызстан (в целом)' else 0.7
+    linewidth = 4 if column == 'Kyrgyzstan avg' else 2
+    alpha = 1 if column == 'Kyrgyzstan avg' else 0.7
     ax.plot(df.index, df[column], marker='o', label=column, linewidth=linewidth, alpha=alpha)
 
 # Настройки
-plt.title('Динамика роста средних зарплат в КР по регионам (2020-2024)', fontsize=16, pad=20)
-plt.ylabel('Сом', fontsize=12)
+plt.title('Salary Growth (2020-2025)', fontsize=16, pad=20)
+plt.ylabel('SOM', fontsize=12)
 plt.grid(True, linestyle='--', alpha=0.5)
 
 # Выносим легенду вбок, чтобы не мешала
-plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', title="Регионы")
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', title="Regions")
 
-# Подписываем только финальные значения 2024 года для ясности
+# Подписываем только финальные значения 2025 года для ясности
 for column in df.columns:
     plt.text(4.1, df[column].iloc[-1], f'{int(df[column].iloc[-1])}', va='center', fontsize=9)
 
